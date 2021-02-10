@@ -1,0 +1,46 @@
+﻿<Page x:Class="Production.Views.Pages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Production.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="950"
+      Title="RegistrationPage">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="CREATE A LOGIN"
+                               Style="{StaticResource TextBlock}"
+                               Margin="10, 0, 0, 10"></TextBlock>
+                <TextBox x:Name="RegistrationLoginBTN"
+                             Style="{StaticResource TextBox}"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="CREATE A PASSWORD"
+                               Style="{StaticResource TextBlock}"
+                               Margin="10, 10, 0, 10"></TextBlock>
+                <PasswordBox x:Name="RegistrationPasswordBTN"
+                               Style="{StaticResource PasswordBox}"></PasswordBox>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="ROLE"
+                               Style="{StaticResource TextBlock}"
+                               Margin="10, 10, 0, 10"></TextBlock>
+                <ComboBox x:Name="RoleBTN"
+                                                    Margin="0, 0, 0, 10"
+                          Style="{StaticResource ComboBox}"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="returnSignInBTN" 
+                        Style="{StaticResource ButtonStyle}"
+                        Content="ВЕРНУТЬСЯ" Click="returnSignInBTN_Click"></Button>
+                <Button   x:Name="RegistrationBTN"
+                          Style="{StaticResource ButtonStyle}"
+                          Content="РЕГИСТРАЦИЯ" Click="RegistrationBTN_Click"></Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

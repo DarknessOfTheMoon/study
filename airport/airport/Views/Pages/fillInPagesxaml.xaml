@@ -1,0 +1,59 @@
+﻿<Page x:Class="airport.Views.Pages.fillInPagesxaml"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:airport.Views.Pages"
+      mc:Ignorable="d"   MaxWidth="1000"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="fillInPagesxaml">
+    <Grid>
+        <!--ГЛОБАЛЬНЫЙ СТЕК-->
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            
+            <!--СТЕК ИНТЕРФЕЙСА-->
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+    
+                <!--ПАНЕЛЬ TEXTBLOCK-->
+                <StackPanel Margin="0, 0, 20, 0">
+                    <TextBlock Text="ИМЯ:" Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBlock Text="ФАМИЛИЯ:" Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBlock Text="ОТЧЕСТВО:" Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBlock Text="ПОЛ:" Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBlock Text="НОМЕР ПАСПОРТА:" Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBlock Text="ГРАЖДАНСТВО:" Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBlock Text="РЕЙС:"></TextBlock>
+                </StackPanel>
+                
+                <!--ПАНЕЛЬ TEXTBOX-->
+                <StackPanel>
+                    <TextBox x:Name="Add_name" Margin="0, 0, 0, 7" Width="150"></TextBox>
+                    <TextBox x:Name="Add_lastname" Margin="0, 0, 0, 8"></TextBox>
+                    <TextBox x:Name="Add_middlename" Margin="0, 0, 0, 7"></TextBox>
+                    <ComboBox x:Name="Add_cmbGender" Margin="0, 0, 0, 6"></ComboBox>
+                    <TextBox x:Name="Add_passport" Margin="0, 0, 0, 6"></TextBox>
+                    <ComboBox x:Name="Add_citizenship" Margin="0, 0, 0, 6"></ComboBox>
+                    <ComboBox x:Name="Add_flight"></ComboBox>
+                </StackPanel>
+           
+                
+            </StackPanel>
+            
+            <!--ПАНЕЛЬ С КНОПКАМИ-->
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Button x:Name="return_btnAdd" 
+                        Click="return_btnAdd_Click"
+                        Content="ВЕРНУТЬСЯ" 
+                        Margin="10"></Button>
+                <Button x:Name="btn_Add"
+                        Click="btn_Add_Click"
+                        Content="ДОБАВИТЬ"></Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

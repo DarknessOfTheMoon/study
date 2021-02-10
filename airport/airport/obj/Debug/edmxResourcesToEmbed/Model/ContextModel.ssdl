@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище airportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="citizenship">
+    <Key>
+      <PropertyRef Name="IDcitizenship" />
+    </Key>
+    <Property Name="IDcitizenship" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="flight">
+    <Key>
+      <PropertyRef Name="FlifhtId" />
+    </Key>
+    <Property Name="FlifhtId" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="distance" Type="int" Nullable="false" />
+    <Property Name="departurePoint" Type="int" Nullable="false" />
+    <Property Name="pointOfArrival" Type="int" Nullable="false" />
+    <Property Name="departureDate" Type="date" Nullable="false" />
+    <Property Name="arrivalDate" Type="date" Nullable="false" />
+    <Property Name="TicketsSold" Type="int" Nullable="false" />
+    <Property Name="IDplane" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="IDgender" />
+    </Key>
+    <Property Name="IDgender" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="passengers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="surName" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="MaddleName" Type="nvarchar" MaxLength="15" />
+    <Property Name="genderID" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="passportID" Type="int" Nullable="false" />
+    <Property Name="citizenshipID" Type="int" Nullable="false" />
+    <Property Name="idFlight" Type="nchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="plane">
+    <Key>
+      <PropertyRef Name="planeID" />
+    </Key>
+    <Property Name="planeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="numberOfPlaces" Type="int" Nullable="false" />
+    <Property Name="flightSpeed" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="IDpoint" />
+    </Key>
+    <Property Name="IDpoint" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titlDeparturee" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="titleArrival" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_flight_departurePoint_Point_IDpoint">
+    <End Role="Point" Type="Self.Point" Multiplicity="1" />
+    <End Role="flight" Type="Self.flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="IDpoint" />
+      </Principal>
+      <Dependent Role="flight">
+        <PropertyRef Name="departurePoint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_flight_Idplane_plane_planeID">
+    <End Role="plane" Type="Self.plane" Multiplicity="1" />
+    <End Role="flight" Type="Self.flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="plane">
+        <PropertyRef Name="planeID" />
+      </Principal>
+      <Dependent Role="flight">
+        <PropertyRef Name="IDplane" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_flight_pointOfArrival_Point_IDpoint">
+    <End Role="Point" Type="Self.Point" Multiplicity="1" />
+    <End Role="flight" Type="Self.flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="IDpoint" />
+      </Principal>
+      <Dependent Role="flight">
+        <PropertyRef Name="pointOfArrival" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_passengers_citizenshipID_citizenship_IDcitizenship">
+    <End Role="citizenship" Type="Self.citizenship" Multiplicity="1" />
+    <End Role="passengers" Type="Self.passengers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="citizenship">
+        <PropertyRef Name="IDcitizenship" />
+      </Principal>
+      <Dependent Role="passengers">
+        <PropertyRef Name="citizenshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_passengers_genderID_Gender_IDgender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="passengers" Type="Self.passengers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="IDgender" />
+      </Principal>
+      <Dependent Role="passengers">
+        <PropertyRef Name="genderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_passengers_idFlight_flight_FlifhtId">
+    <End Role="flight" Type="Self.flight" Multiplicity="1" />
+    <End Role="passengers" Type="Self.passengers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="flight">
+        <PropertyRef Name="FlifhtId" />
+      </Principal>
+      <Dependent Role="passengers">
+        <PropertyRef Name="idFlight" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище airportModelContainer">
+    <EntitySet Name="citizenship" EntityType="Self.citizenship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="flight" EntityType="Self.flight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="passengers" EntityType="Self.passengers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="plane" EntityType="Self.plane" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Point" EntityType="Self.Point" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_flight_departurePoint_Point_IDpoint" Association="Self.fk_flight_departurePoint_Point_IDpoint">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="flight" EntitySet="flight" />
+    </AssociationSet>
+    <AssociationSet Name="fk_flight_Idplane_plane_planeID" Association="Self.fk_flight_Idplane_plane_planeID">
+      <End Role="plane" EntitySet="plane" />
+      <End Role="flight" EntitySet="flight" />
+    </AssociationSet>
+    <AssociationSet Name="fk_flight_pointOfArrival_Point_IDpoint" Association="Self.fk_flight_pointOfArrival_Point_IDpoint">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="flight" EntitySet="flight" />
+    </AssociationSet>
+    <AssociationSet Name="fk_passengers_citizenshipID_citizenship_IDcitizenship" Association="Self.fk_passengers_citizenshipID_citizenship_IDcitizenship">
+      <End Role="citizenship" EntitySet="citizenship" />
+      <End Role="passengers" EntitySet="passengers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_passengers_genderID_Gender_IDgender" Association="Self.fk_passengers_genderID_Gender_IDgender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="passengers" EntitySet="passengers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_passengers_idFlight_flight_FlifhtId" Association="Self.fk_passengers_idFlight_flight_FlifhtId">
+      <End Role="flight" EntitySet="flight" />
+      <End Role="passengers" EntitySet="passengers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

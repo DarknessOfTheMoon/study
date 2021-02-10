@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище productionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="IDcompany" />
+          </Key>
+          <Property Name="IDcompany" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCompany" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AddressCompany" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumberCompany" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="IDMaterial" />
+          </Key>
+          <Property Name="IDMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameMaterial" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TypeMaterial" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MaterialUnit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="IDproduct" />
+          </Key>
+          <Property Name="IDproduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameProduct" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="IsTypicalID" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ManufacturingСompany" Type="int" Nullable="false" />
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+          <Property Name="Picture" Type="image" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SignIn">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="IDrole" Type="nchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Typical">
+          <Key>
+            <PropertyRef Name="IDtypical" />
+          </Key>
+          <Property Name="IDtypical" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_product_IsTypicalID_Typical_IDtypical">
+          <End Role="Typical" Type="Self.Typical" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typical">
+              <PropertyRef Name="IDtypical" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="IsTypicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_ManufacturingСompany_Company_IDcompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="IDcompany" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="ManufacturingСompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_MaterialID_Material_IDMaterial">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="IDMaterial" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignIn_ID_Role_roleID">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="SignIn" Type="Self.SignIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="SignIn">
+              <PropertyRef Name="IDrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище productionModelContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SignIn" EntityType="Self.SignIn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Typical" EntityType="Self.Typical" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_product_IsTypicalID_Typical_IDtypical" Association="Self.FK_product_IsTypicalID_Typical_IDtypical">
+            <End Role="Typical" EntitySet="Typical" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_ManufacturingСompany_Company_IDcompany" Association="Self.FK_product_ManufacturingСompany_Company_IDcompany">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_MaterialID_Material_IDMaterial" Association="Self.FK_product_MaterialID_Material_IDMaterial">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignIn_ID_Role_roleID" Association="Self.FK_SignIn_ID_Role_roleID">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="SignIn" EntitySet="SignIn" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="productionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="IDcompany" />
+          </Key>
+          <Property Name="IDcompany" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCompany" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressCompany" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberCompany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Self.FK_product_ManufacturingСompany_Company_IDcompany" FromRole="Company" ToRole="product" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="IDMaterial" />
+          </Key>
+          <Property Name="IDMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMaterial" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeMaterial" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaterialUnit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Self.FK_product_MaterialID_Material_IDMaterial" FromRole="Material" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="IDproduct" />
+          </Key>
+          <Property Name="IDproduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameProduct" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsTypicalID" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManufacturingСompany" Type="Int32" Nullable="false" />
+          <Property Name="MaterialID" Type="Int32" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_product_ManufacturingСompany_Company_IDcompany" FromRole="product" ToRole="Company" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_product_MaterialID_Material_IDMaterial" FromRole="product" ToRole="Material" />
+          <NavigationProperty Name="Typical" Relationship="Self.FK_product_IsTypicalID_Typical_IDtypical" FromRole="product" ToRole="Typical" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SignIn" Relationship="Self.FK_SignIn_ID_Role_roleID" FromRole="Role" ToRole="SignIn" />
+        </EntityType>
+        <EntityType Name="SignIn">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDrole" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_SignIn_ID_Role_roleID" FromRole="SignIn" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Typical">
+          <Key>
+            <PropertyRef Name="IDtypical" />
+          </Key>
+          <Property Name="IDtypical" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Self.FK_product_IsTypicalID_Typical_IDtypical" FromRole="Typical" ToRole="product" />
+        </EntityType>
+        <Association Name="FK_product_ManufacturingСompany_Company_IDcompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="IDcompany" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="ManufacturingСompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_MaterialID_Material_IDMaterial">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="IDMaterial" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_IsTypicalID_Typical_IDtypical">
+          <End Role="Typical" Type="Self.Typical" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typical">
+              <PropertyRef Name="IDtypical" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="IsTypicalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignIn_ID_Role_roleID">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="SignIn" Type="Self.SignIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="SignIn">
+              <PropertyRef Name="IDrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="productionEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Company" EntityType="Self.Company" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="product" EntityType="Self.product" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="SignIn" EntityType="Self.SignIn" />
+          <EntitySet Name="Typical" EntityType="Self.Typical" />
+          <AssociationSet Name="FK_product_ManufacturingСompany_Company_IDcompany" Association="Self.FK_product_ManufacturingСompany_Company_IDcompany">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_MaterialID_Material_IDMaterial" Association="Self.FK_product_MaterialID_Material_IDMaterial">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_IsTypicalID_Typical_IDtypical" Association="Self.FK_product_IsTypicalID_Typical_IDtypical">
+            <End Role="Typical" EntitySet="Typical" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignIn_ID_Role_roleID" Association="Self.FK_SignIn_ID_Role_roleID">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="SignIn" EntitySet="SignIn" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище productionModelContainer" CdmEntityContainer="productionEntities1">
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="productionModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="IDcompany" ColumnName="IDcompany" />
+                <ScalarProperty Name="NameCompany" ColumnName="NameCompany" />
+                <ScalarProperty Name="AddressCompany" ColumnName="AddressCompany" />
+                <ScalarProperty Name="NumberCompany" ColumnName="NumberCompany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="productionModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="IDMaterial" ColumnName="IDMaterial" />
+                <ScalarProperty Name="NameMaterial" ColumnName="NameMaterial" />
+                <ScalarProperty Name="TypeMaterial" ColumnName="TypeMaterial" />
+                <ScalarProperty Name="MaterialUnit" ColumnName="MaterialUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="productionModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="IDproduct" ColumnName="IDproduct" />
+                <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+                <ScalarProperty Name="IsTypicalID" ColumnName="IsTypicalID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ManufacturingСompany" ColumnName="ManufacturingСompany" />
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="productionModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SignIn">
+            <EntityTypeMapping TypeName="productionModel.SignIn">
+              <MappingFragment StoreEntitySet="SignIn">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IDrole" ColumnName="IDrole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Typical">
+            <EntityTypeMapping TypeName="productionModel.Typical">
+              <MappingFragment StoreEntitySet="Typical">
+                <ScalarProperty Name="IDtypical" ColumnName="IDtypical" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

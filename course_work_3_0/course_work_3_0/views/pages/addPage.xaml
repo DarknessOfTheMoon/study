@@ -1,0 +1,62 @@
+﻿<Page x:Class="course_work_3_0.views.pages.addPages"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:course_work_3_0.views.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="addPages">
+    <Grid>
+        
+        <!-- ГЛОБАЛЬНЫЙ СТЕК -->
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <!-- ПАНЕЛЬ ДЛЯ ИНТЕРФЕЙСА -->
+            <StackPanel Orientation="Horizontal">
+
+                <!-- ПАНЕЛЬ TEXTBLOCK -->
+                <StackPanel>
+                    <TextBlock x:Name="textFIO" Text="ФИО:" FontSize="15" Margin="0, 0, 0, 6"></TextBlock>
+                    <TextBlock Text="ДАТА РОЖДЕНИЯ:" FontSize="15" Margin="0, 0, 0, 6"></TextBlock>
+                    <TextBlock Text="СЕМЕЙНОЕ ПОЛОЖЕНИЕ:" FontSize="15" Margin="0, 0, 0, 6"></TextBlock>
+                    <TextBlock Text="ГРУППА:" FontSize="15" Margin="0, 0, 0, 6"></TextBlock>
+                    <TextBlock Text="КУРС:" FontSize="15" Margin="0, 0, 0, 6"></TextBlock>
+                    <TextBlock Text="ГОД ПОСТУПЛЕНИЯ:" FontSize="15" Margin="0, 0, 0, 6"></TextBlock>
+                    <TextBlock Text="СТИПЕНДИЯ:" FontSize="15"></TextBlock>
+                </StackPanel>
+
+                <!-- ПАНЕЛЬ TEXTBOX -->
+                <StackPanel Margin="10, 0, 0, 0">
+                    <TextBox x:Name="INSERT_NAME" Width="150" Margin="0, 0, 0, 6"></TextBox>
+                    <DatePicker x:Name="INSERT_DATE_BORN" Margin="0, 0, 0, 6"></DatePicker>
+                    <TextBox x:Name="INSERT_MARITALSTATUS" Margin="0, 0, 0, 7"/>
+                    <ComboBox x:Name="INSERT_GROUP" VerticalAlignment="Top"  Margin="0, 0, 0, 5"></ComboBox>
+                    <TextBox x:Name="INSERT_COURSE" Width="150" Margin="0, 0, 0, 7"></TextBox>
+                    <DatePicker x:Name="INSERT_YEAR_ROLLMENT" Margin="0, 0, 0, 7"></DatePicker>
+                    <TextBox x:Name="INSERT_SCHOLARSHIP"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+            <!--ПАНЕЛЬ BUTTOM-->
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Margin="0, 15, 0, 0">
+                <Button Content="ВЕРНУТЬСЯ" 
+                        Name="ReturnMainPage"
+                        Margin="0, 0, 10, 0" 
+                        Width="150" 
+                        Height="25"
+                        Click="ReturnMainPage_Click"/>
+                <Button Content="ДОБАВИТЬ" 
+                        x:Name="ADDButton"
+                        Width="150" 
+                        Height="25"
+                        Click="ADDButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    
+</Page>

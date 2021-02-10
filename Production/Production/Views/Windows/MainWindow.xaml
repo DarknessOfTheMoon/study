@@ -1,0 +1,13 @@
+﻿<Window x:Class="Production.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Production"
+        mc:Ignorable="d"  MaxHeight="600" MaxWidth="950"
+        MinHeight="600" MinWidth="950"
+        Title="MainWindow" Width="950" Background="White">
+    <Grid>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Navigated="mainFrame_Navigated" FontFamily="Bradley Hand ITC" FontSize="16"></Frame>
+    </Grid>
+</Window>

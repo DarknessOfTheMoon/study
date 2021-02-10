@@ -1,0 +1,121 @@
+﻿<Page x:Class="Production.Views.Pages.UserPage.ListViewProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Production.Views.Pages.UserPage"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="600" d:DesignWidth="950"
+      Title="ListViewProductPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel  Margin="10, 30, 0, 0"
+                            Height="100" 
+                            Width="450">
+                    <TextBlock Margin="16, 0, 0, 0" Text="ПОИСК"/>
+                    <TextBox Height="25"  Style="{StaticResource TextBox}" 
+                             x:Name="SearchBTN" TextChanged="SearchBTN_TextChanged"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="100, 10, 0, 0"
+                            Height="100" 
+                            Width="350">
+
+                    <Button x:Name="AddBTNProduct"
+                            Style="{StaticResource ButtonStyle}"
+                            Width="150"
+                            Content="ДОБАВИТЬ"
+                            Height="30"
+                            Margin="0, 0, 50, 0" Click="AddBTNProduct_Click">
+
+                    </Button>
+                    <Button Content="УДАЛИТЬ"
+                            x:Name="DataAdminDeleteProduct"
+                            Style="{StaticResource ButtonStyle}"
+                            Margin="0, 35, 0, 35"
+                            Width="150"
+                            Height="30" Click="DataAdminDeleteProduct_Click"></Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="21*"/>
+                <ColumnDefinition Width="74*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView  x:Name="ListViewProduct"
+                       MouseDoubleClick="ListViewProduct_MouseDoubleClick" Grid.ColumnSpan="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400"></ColumnDefinition>
+                                <ColumnDefinition Width="450"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Image Source="{Binding Picture}" 
+                                           Width="200"
+                                           Height="200"/>
+                                </StackPanel>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <StackPanel Orientation="Vertical"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Left">
+                                    <Label Content="{Binding IDproduct}" ContentStringFormat="ID: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding NameProduct}" ContentStringFormat="НАИМЕНОВАНИЕ: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding Typical.TITLE}" ContentStringFormat="ТИП: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding Note}" ContentStringFormat="ПРИМЕЧАНИЕ: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding Company.NameCompany}" ContentStringFormat="КОМПАНИЯ: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding Material.NameMaterial}" ContentStringFormat="МАТЕРИАЛ: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding Material.TypeMaterial}" ContentStringFormat="ТИП МАТЕРИАЛА: {0}" Style="{StaticResource labelStyle}"></Label>
+                                    <Label Content="{Binding Material.MaterialUnit}" ContentStringFormat="КОЛИЧЕСТВО МАТЕРИАЛА: {0}" Style="{StaticResource labelStyle}"></Label>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0">
+                <Button Content="ВЫХОД"
+                        x:Name="ExitListViewPageAdmin"
+                        Style="{StaticResource ButtonStyle}"
+                        Width="150"
+                         Height="30" Margin="0,35" Click="ExitListViewPageAdmin_Click"/>
+                <Button Content="СЛЕДУЮЩАЯ"
+                        x:Name="NextPageAdmin"
+                        Style="{StaticResource ButtonStyle}"
+                        Margin="250, 0, 0, 0"
+                        Width="150"
+                        Height="30" Click="NextPageAdmin_Click"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Page>

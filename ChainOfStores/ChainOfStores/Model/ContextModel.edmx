@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ChainOfStoresModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OWNER">
+          <Key>
+            <PropertyRef Name="IDowner" />
+          </Key>
+          <Property Name="IDowner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumberOwner" Type="int" Nullable="false" />
+          <Property Name="DepositAamount" Type="int" Nullable="false" />
+          <Property Name="NumberRegistration" Type="int" Nullable="false" />
+          <Property Name="DateRregistration" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROFILE">
+          <Key>
+            <PropertyRef Name="profileID" />
+          </Key>
+          <Property Name="profileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVIDER">
+          <Key>
+            <PropertyRef Name="IDprovide" />
+          </Key>
+          <Property Name="IDprovide" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumberProvider" Type="int" Nullable="false" />
+          <Property Name="DeliveryCost" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STORE">
+          <Key>
+            <PropertyRef Name="IDstore" />
+          </Key>
+          <Property Name="IDstore" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStore" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumberStore" Type="int" Nullable="false" />
+          <Property Name="AuthorizedCapital" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ownerID" Type="int" Nullable="false" />
+          <Property Name="IDprofile" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUPPLY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="storeID" Type="int" Nullable="false" />
+          <Property Name="providerID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_STORE_IDprofile_PROFILE_profileID">
+          <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+          <End Role="STORE" Type="Self.STORE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFILE">
+              <PropertyRef Name="profileID" />
+            </Principal>
+            <Dependent Role="STORE">
+              <PropertyRef Name="IDprofile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STORE_ownerID_OWNER_IDowner">
+          <End Role="OWNER" Type="Self.OWNER" Multiplicity="1" />
+          <End Role="STORE" Type="Self.STORE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWNER">
+              <PropertyRef Name="IDowner" />
+            </Principal>
+            <Dependent Role="STORE">
+              <PropertyRef Name="ownerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLY_providerID_PROVIDER_IDprovide">
+          <End Role="PROVIDER" Type="Self.PROVIDER" Multiplicity="1" />
+          <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVIDER">
+              <PropertyRef Name="IDprovide" />
+            </Principal>
+            <Dependent Role="SUPPLY">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLY_storeID_STORE_IDstore">
+          <End Role="STORE" Type="Self.STORE" Multiplicity="1" />
+          <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORE">
+              <PropertyRef Name="IDstore" />
+            </Principal>
+            <Dependent Role="SUPPLY">
+              <PropertyRef Name="storeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ChainOfStoresModelContainer">
+          <EntitySet Name="OWNER" EntityType="Self.OWNER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFILE" EntityType="Self.PROFILE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVIDER" EntityType="Self.PROVIDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORE" EntityType="Self.STORE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_STORE_IDprofile_PROFILE_profileID" Association="Self.FK_STORE_IDprofile_PROFILE_profileID">
+            <End Role="PROFILE" EntitySet="PROFILE" />
+            <End Role="STORE" EntitySet="STORE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STORE_ownerID_OWNER_IDowner" Association="Self.FK_STORE_ownerID_OWNER_IDowner">
+            <End Role="OWNER" EntitySet="OWNER" />
+            <End Role="STORE" EntitySet="STORE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLY_providerID_PROVIDER_IDprovide" Association="Self.FK_SUPPLY_providerID_PROVIDER_IDprovide">
+            <End Role="PROVIDER" EntitySet="PROVIDER" />
+            <End Role="SUPPLY" EntitySet="SUPPLY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLY_storeID_STORE_IDstore" Association="Self.FK_SUPPLY_storeID_STORE_IDstore">
+            <End Role="STORE" EntitySet="STORE" />
+            <End Role="SUPPLY" EntitySet="SUPPLY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChainOfStoresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OWNER">
+          <Key>
+            <PropertyRef Name="IDowner" />
+          </Key>
+          <Property Name="IDowner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOwner" Type="Int32" Nullable="false" />
+          <Property Name="DepositAamount" Type="Int32" Nullable="false" />
+          <Property Name="NumberRegistration" Type="Int32" Nullable="false" />
+          <Property Name="DateRregistration" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="STORE" Relationship="Self.FK_STORE_ownerID_OWNER_IDowner" FromRole="OWNER" ToRole="STORE" />
+        </EntityType>
+        <EntityType Name="PROFILE">
+          <Key>
+            <PropertyRef Name="profileID" />
+          </Key>
+          <Property Name="profileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="STORE" Relationship="Self.FK_STORE_IDprofile_PROFILE_profileID" FromRole="PROFILE" ToRole="STORE" />
+        </EntityType>
+        <EntityType Name="PROVIDER">
+          <Key>
+            <PropertyRef Name="IDprovide" />
+          </Key>
+          <Property Name="IDprovide" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberProvider" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryCost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SUPPLY" Relationship="Self.FK_SUPPLY_providerID_PROVIDER_IDprovide" FromRole="PROVIDER" ToRole="SUPPLY" />
+        </EntityType>
+        <EntityType Name="STORE">
+          <Key>
+            <PropertyRef Name="IDstore" />
+          </Key>
+          <Property Name="IDstore" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStore" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberStore" Type="Int32" Nullable="false" />
+          <Property Name="AuthorizedCapital" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ownerID" Type="Int32" Nullable="false" />
+          <Property Name="IDprofile" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OWNER" Relationship="Self.FK_STORE_ownerID_OWNER_IDowner" FromRole="STORE" ToRole="OWNER" />
+          <NavigationProperty Name="PROFILE" Relationship="Self.FK_STORE_IDprofile_PROFILE_profileID" FromRole="STORE" ToRole="PROFILE" />
+          <NavigationProperty Name="SUPPLY" Relationship="Self.FK_SUPPLY_storeID_STORE_IDstore" FromRole="STORE" ToRole="SUPPLY" />
+        </EntityType>
+        <EntityType Name="SUPPLY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="storeID" Type="Int32" Nullable="false" />
+          <Property Name="providerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PROVIDER" Relationship="Self.FK_SUPPLY_providerID_PROVIDER_IDprovide" FromRole="SUPPLY" ToRole="PROVIDER" />
+          <NavigationProperty Name="STORE" Relationship="Self.FK_SUPPLY_storeID_STORE_IDstore" FromRole="SUPPLY" ToRole="STORE" />
+        </EntityType>
+        <Association Name="FK_STORE_ownerID_OWNER_IDowner">
+          <End Role="OWNER" Type="Self.OWNER" Multiplicity="1" />
+          <End Role="STORE" Type="Self.STORE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWNER">
+              <PropertyRef Name="IDowner" />
+            </Principal>
+            <Dependent Role="STORE">
+              <PropertyRef Name="ownerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STORE_IDprofile_PROFILE_profileID">
+          <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+          <End Role="STORE" Type="Self.STORE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFILE">
+              <PropertyRef Name="profileID" />
+            </Principal>
+            <Dependent Role="STORE">
+              <PropertyRef Name="IDprofile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLY_providerID_PROVIDER_IDprovide">
+          <End Role="PROVIDER" Type="Self.PROVIDER" Multiplicity="1" />
+          <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVIDER">
+              <PropertyRef Name="IDprovide" />
+            </Principal>
+            <Dependent Role="SUPPLY">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLY_storeID_STORE_IDstore">
+          <End Role="STORE" Type="Self.STORE" Multiplicity="1" />
+          <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORE">
+              <PropertyRef Name="IDstore" />
+            </Principal>
+            <Dependent Role="SUPPLY">
+              <PropertyRef Name="storeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChainOfStoresEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OWNER" EntityType="Self.OWNER" />
+          <EntitySet Name="PROFILE" EntityType="Self.PROFILE" />
+          <EntitySet Name="PROVIDER" EntityType="Self.PROVIDER" />
+          <EntitySet Name="STORE" EntityType="Self.STORE" />
+          <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" />
+          <AssociationSet Name="FK_STORE_ownerID_OWNER_IDowner" Association="Self.FK_STORE_ownerID_OWNER_IDowner">
+            <End Role="OWNER" EntitySet="OWNER" />
+            <End Role="STORE" EntitySet="STORE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STORE_IDprofile_PROFILE_profileID" Association="Self.FK_STORE_IDprofile_PROFILE_profileID">
+            <End Role="PROFILE" EntitySet="PROFILE" />
+            <End Role="STORE" EntitySet="STORE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLY_providerID_PROVIDER_IDprovide" Association="Self.FK_SUPPLY_providerID_PROVIDER_IDprovide">
+            <End Role="PROVIDER" EntitySet="PROVIDER" />
+            <End Role="SUPPLY" EntitySet="SUPPLY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLY_storeID_STORE_IDstore" Association="Self.FK_SUPPLY_storeID_STORE_IDstore">
+            <End Role="STORE" EntitySet="STORE" />
+            <End Role="SUPPLY" EntitySet="SUPPLY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ChainOfStoresModelContainer" CdmEntityContainer="ChainOfStoresEntities1">
+          <EntitySetMapping Name="OWNER">
+            <EntityTypeMapping TypeName="ChainOfStoresModel.OWNER">
+              <MappingFragment StoreEntitySet="OWNER">
+                <ScalarProperty Name="IDowner" ColumnName="IDowner" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NumberOwner" ColumnName="NumberOwner" />
+                <ScalarProperty Name="DepositAamount" ColumnName="DepositAamount" />
+                <ScalarProperty Name="NumberRegistration" ColumnName="NumberRegistration" />
+                <ScalarProperty Name="DateRregistration" ColumnName="DateRregistration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFILE">
+            <EntityTypeMapping TypeName="ChainOfStoresModel.PROFILE">
+              <MappingFragment StoreEntitySet="PROFILE">
+                <ScalarProperty Name="profileID" ColumnName="profileID" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVIDER">
+            <EntityTypeMapping TypeName="ChainOfStoresModel.PROVIDER">
+              <MappingFragment StoreEntitySet="PROVIDER">
+                <ScalarProperty Name="IDprovide" ColumnName="IDprovide" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="NumberProvider" ColumnName="NumberProvider" />
+                <ScalarProperty Name="DeliveryCost" ColumnName="DeliveryCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORE">
+            <EntityTypeMapping TypeName="ChainOfStoresModel.STORE">
+              <MappingFragment StoreEntitySet="STORE">
+                <ScalarProperty Name="IDstore" ColumnName="IDstore" />
+                <ScalarProperty Name="NameStore" ColumnName="NameStore" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NumberStore" ColumnName="NumberStore" />
+                <ScalarProperty Name="AuthorizedCapital" ColumnName="AuthorizedCapital" />
+                <ScalarProperty Name="ownerID" ColumnName="ownerID" />
+                <ScalarProperty Name="IDprofile" ColumnName="IDprofile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLY">
+            <EntityTypeMapping TypeName="ChainOfStoresModel.SUPPLY">
+              <MappingFragment StoreEntitySet="SUPPLY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="storeID" ColumnName="storeID" />
+                <ScalarProperty Name="providerID" ColumnName="providerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

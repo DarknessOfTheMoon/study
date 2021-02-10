@@ -1,0 +1,30 @@
+﻿<Page x:Class="ChainOfStores.Views.Pages.ChoisePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChainOfStores.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChoisePage">
+    <Grid>
+        <StackPanel Orientation="Vertical" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel>
+                <Button Content="ДОБАВЛЕНИЕ ПОСТАВКИ"
+                        x:Name="addSupplyMain"
+                        Click="addSupplyMain_Click"
+                        Style="{StaticResource MainButton}"></Button>
+                <Button Content="ПОДРОБНАЯ ИНФОРМАЦИЯ"
+                        x:Name="listNameInfo"
+                        Click="listNameInfo_Click"
+                        Style="{StaticResource MainButton}"></Button>
+                <Button Content="ВЫХОД"
+                        x:Name="exitProgram"
+                        Click="exitProgram_Click"
+                        Style="{StaticResource MainButton}"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

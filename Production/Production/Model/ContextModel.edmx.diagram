@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffea6bbed26445ed9c1c97f8487a5a6c" Name="Diagram1">
+        <EntityTypeShape EntityType="productionModel.Company" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="productionModel.Material" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="productionModel.product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="productionModel.Role" Width="1.5" PointX="2.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="productionModel.SignIn" Width="1.5" PointX="5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="productionModel.Typical" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="productionModel.FK_product_ManufacturingСompany_Company_IDcompany" ManuallyRouted="false" />
+        <AssociationConnector Association="productionModel.FK_product_MaterialID_Material_IDMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="productionModel.FK_product_IsTypicalID_Typical_IDtypical" ManuallyRouted="false" />
+        <AssociationConnector Association="productionModel.FK_SignIn_ID_Role_roleID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

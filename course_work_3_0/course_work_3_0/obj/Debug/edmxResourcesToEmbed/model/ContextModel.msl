@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище STUDENTSModelContainer" CdmEntityContainer="STUDENTSEntities">
+    <EntitySetMapping Name="FACULTY">
+      <EntityTypeMapping TypeName="STUDENTSModel.FACULTY">
+        <MappingFragment StoreEntitySet="FACULTY">
+          <ScalarProperty Name="FACULTYID" ColumnName="FACULTYID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="PLACES" ColumnName="PLACES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GROUP">
+      <EntityTypeMapping TypeName="STUDENTSModel.GROUP">
+        <MappingFragment StoreEntitySet="GROUP">
+          <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="QUANTITY_STUDENTS" ColumnName="QUANTITY_STUDENTS" />
+          <ScalarProperty Name="IDSPECIALTY" ColumnName="IDSPECIALTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPECIALTY">
+      <EntityTypeMapping TypeName="STUDENTSModel.SPECIALTY">
+        <MappingFragment StoreEntitySet="SPECIALTY">
+          <ScalarProperty Name="SPECIALTYID" ColumnName="SPECIALTYID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="IDFACULTY" ColumnName="IDFACULTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="STUDENTSModel.students">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DATEOFBIRTH" ColumnName="DATEOFBIRTH" />
+          <ScalarProperty Name="MARITALSTATUS" ColumnName="MARITALSTATUS" />
+          <ScalarProperty Name="IDGROUP" ColumnName="IDGROUP" />
+          <ScalarProperty Name="COURSE" ColumnName="COURSE" />
+          <ScalarProperty Name="YEAROFENROLLMENT" ColumnName="YEAROFENROLLMENT" />
+          <ScalarProperty Name="SCHOLARSHIP" ColumnName="SCHOLARSHIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

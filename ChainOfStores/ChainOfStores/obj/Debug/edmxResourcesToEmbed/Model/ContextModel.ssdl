@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ChainOfStoresModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="OWNER">
+    <Key>
+      <PropertyRef Name="IDowner" />
+    </Key>
+    <Property Name="IDowner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NumberOwner" Type="int" Nullable="false" />
+    <Property Name="DepositAamount" Type="int" Nullable="false" />
+    <Property Name="NumberRegistration" Type="int" Nullable="false" />
+    <Property Name="DateRregistration" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROFILE">
+    <Key>
+      <PropertyRef Name="profileID" />
+    </Key>
+    <Property Name="profileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITLE" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVIDER">
+    <Key>
+      <PropertyRef Name="IDprovide" />
+    </Key>
+    <Property Name="IDprovide" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NumberProvider" Type="int" Nullable="false" />
+    <Property Name="DeliveryCost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STORE">
+    <Key>
+      <PropertyRef Name="IDstore" />
+    </Key>
+    <Property Name="IDstore" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameStore" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NumberStore" Type="int" Nullable="false" />
+    <Property Name="AuthorizedCapital" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ownerID" Type="int" Nullable="false" />
+    <Property Name="IDprofile" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUPPLY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="storeID" Type="int" Nullable="false" />
+    <Property Name="providerID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_STORE_IDprofile_PROFILE_profileID">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+    <End Role="STORE" Type="Self.STORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="profileID" />
+      </Principal>
+      <Dependent Role="STORE">
+        <PropertyRef Name="IDprofile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STORE_ownerID_OWNER_IDowner">
+    <End Role="OWNER" Type="Self.OWNER" Multiplicity="1" />
+    <End Role="STORE" Type="Self.STORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OWNER">
+        <PropertyRef Name="IDowner" />
+      </Principal>
+      <Dependent Role="STORE">
+        <PropertyRef Name="ownerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUPPLY_providerID_PROVIDER_IDprovide">
+    <End Role="PROVIDER" Type="Self.PROVIDER" Multiplicity="1" />
+    <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVIDER">
+        <PropertyRef Name="IDprovide" />
+      </Principal>
+      <Dependent Role="SUPPLY">
+        <PropertyRef Name="providerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUPPLY_storeID_STORE_IDstore">
+    <End Role="STORE" Type="Self.STORE" Multiplicity="1" />
+    <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STORE">
+        <PropertyRef Name="IDstore" />
+      </Principal>
+      <Dependent Role="SUPPLY">
+        <PropertyRef Name="storeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ChainOfStoresModelContainer">
+    <EntitySet Name="OWNER" EntityType="Self.OWNER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROFILE" EntityType="Self.PROFILE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVIDER" EntityType="Self.PROVIDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STORE" EntityType="Self.STORE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_STORE_IDprofile_PROFILE_profileID" Association="Self.FK_STORE_IDprofile_PROFILE_profileID">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="STORE" EntitySet="STORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STORE_ownerID_OWNER_IDowner" Association="Self.FK_STORE_ownerID_OWNER_IDowner">
+      <End Role="OWNER" EntitySet="OWNER" />
+      <End Role="STORE" EntitySet="STORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUPPLY_providerID_PROVIDER_IDprovide" Association="Self.FK_SUPPLY_providerID_PROVIDER_IDprovide">
+      <End Role="PROVIDER" EntitySet="PROVIDER" />
+      <End Role="SUPPLY" EntitySet="SUPPLY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUPPLY_storeID_STORE_IDstore" Association="Self.FK_SUPPLY_storeID_STORE_IDstore">
+      <End Role="STORE" EntitySet="STORE" />
+      <End Role="SUPPLY" EntitySet="SUPPLY" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,89 @@
+﻿<Page x:Class="ChainOfStores.Views.Pages.DataViews.DataViewOwner"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChainOfStores.Views.Pages.DataViews"
+      mc:Ignorable="d"  Loaded="Page_Loaded"
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="DataViewOwner">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Margin="15, 0, 0, 0"
+                               FontSize="15"
+                               FontFamily="Lobster-Regular">ПОИСК</TextBlock>
+                    <TextBox x:Name="SearchTBX"
+                            Width="400"
+                            Height="40"
+                            Margin="15, 0, 15, 0"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0, 18, 0, 0">
+                    <Button x:Name="DeleteBTN"
+                            Content="УДАЛИТЬ"
+                            Style="{StaticResource MainButton}" 
+                            Margin="0, 0, 5, 0" Click="DeleteBTN_Click"></Button>
+                    <Button x:Name="EditBTN"
+                             Content="РЕДАКТИРОВАТЬ"
+                             Style="{StaticResource MainButton}"
+                             Margin="5, 0, 0, 0" Click="EditBTN_Click"></Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock  Text="СПИСОК КЛИЕНТОВ" 
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource AddSupplyTXB}"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <DataGrid x:Name="DataViewAddOwner"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding IDowner}" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ИМЯ" Binding="{Binding SurName}" Width="125"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ФАМИЛИЯ" Binding="{Binding LastName}" Width="125"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ОТЧЕСТВО" Binding="{Binding MiddleName}" Width="125"></DataGridTextColumn>
+                    <DataGridTextColumn Header="НОМЕР ТЕЛЕФОНА" Binding="{Binding NumberOwner}" Width="125"></DataGridTextColumn>
+                    <DataGridTextColumn Header="СУММА ВКЛАДА" Binding="{Binding DepositAamount}" Width="125"></DataGridTextColumn>
+                    <DataGridTextColumn Header="НОМЕР РЕГИСТРАЦИИ" Binding="{Binding NumberRegistration}" Width="140"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ДАТА РЕГИСТРАЦИИ" Binding="{Binding DateRregistration}" Width="130"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal"
+                        Height="100"
+                        Margin="10, 20, 0, 0">
+                <Button x:Name="returnDataViewPageinChoicePage"
+                        Click="returnDataViewPageinChoicePage_Click"
+                        Content="ВЕРНУТЬСЯ"
+                        Style="{StaticResource MainButton}"></Button>
+                <Button x:Name="NextPageFhree"
+                        Click="NextPageFhree_Click"
+                        Content="СЛЕДУЮЩАЯ СТРАНИЦА"
+                        Style="{StaticResource MainButton}"
+                        Margin="100, 0, 0, 33"></Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Page>

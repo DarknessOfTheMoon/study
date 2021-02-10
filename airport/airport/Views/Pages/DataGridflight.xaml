@@ -1,0 +1,48 @@
+﻿<Page x:Class="airport.Views.Pages.DataGridflight"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:airport.Views.Pages"
+      mc:Ignorable="d"  Loaded="Page_Loaded" MaxWidth="1100"
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="DataGridflight">
+    <Grid>
+        <!--РАЗБИЕНИЕ ЭКРАНА НА ТРИ СТРОКИ-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="280"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--ПЕРВАЯ СТРОКА-->
+            <Grid Grid.Row="0">
+            
+            </Grid> 
+        
+            <!--ВТОРАЯ СТРОКА-->
+            <Grid Grid.Row="1">
+                <ListView x:Name="ListDataFlight">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=FlifhtId}"  Width="50">ID</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=distance}"  Width="100">ДИСТАНЦИЯ</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=Point.titlDeparturee}"  Width="140">МЕСТО ОТПРАВЛЕНИЯ</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=Point.titleArrival}" Width="140">МЕСТО ПРИБЫТИЯ</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=departureDate}" Width="150">ДАТА ОТПРАВЛЕНИЯ</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=arrivalDate}" Width="155" >ДАТА ПРИБЫТИЯ</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=TicketsSold}" Width="155">ЧИСЛО МЕСТ</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=plane.name}" Width="100">ТИП САМОЛЕТА</GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>       
+        
+            <!--ТРЕТЬЯ СТРОКА-->
+            <Grid Grid.Row="2">
+                <Button Content="НАЗАД"
+                        x:Name="returnDataFlight"
+                        Click="returnDataFlight_Click"></Button>
+            </Grid>
+    </Grid>
+</Page>

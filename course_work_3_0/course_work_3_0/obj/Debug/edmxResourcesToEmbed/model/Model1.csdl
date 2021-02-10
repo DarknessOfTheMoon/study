@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STUDENTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FACULTY">
+    <Key>
+      <PropertyRef Name="FACULTYID" />
+    </Key>
+    <Property Name="FACULTYID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PLACES" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPECIALTY" Relationship="Self.FK_SPECIALTY_IDFACULTY_FACULTY_FACULTYID" FromRole="FACULTY" ToRole="SPECIALTY" />
+  </EntityType>
+  <EntityType Name="GROUP">
+    <Key>
+      <PropertyRef Name="GROUPID" />
+    </Key>
+    <Property Name="GROUPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QUANTITY_STUDENTS" Type="Int32" Nullable="false" />
+    <Property Name="IDSPECIALTY" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPECIALTY" Relationship="Self.FK_GROUP_IDSPECIALTY_GROUP_SPECIALTYIS" FromRole="GROUP" ToRole="SPECIALTY" />
+    <NavigationProperty Name="students" Relationship="Self.FK_students_IDGROUP_GROUP_GROUPID" FromRole="GROUP" ToRole="students" />
+  </EntityType>
+  <EntityType Name="SPECIALTY">
+    <Key>
+      <PropertyRef Name="SPECIALTYID" />
+    </Key>
+    <Property Name="SPECIALTYID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDFACULTY" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FACULTY" Relationship="Self.FK_SPECIALTY_IDFACULTY_FACULTY_FACULTYID" FromRole="SPECIALTY" ToRole="FACULTY" />
+    <NavigationProperty Name="GROUP" Relationship="Self.FK_GROUP_IDSPECIALTY_GROUP_SPECIALTYIS" FromRole="SPECIALTY" ToRole="GROUP" />
+  </EntityType>
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DATEOFBIRTH" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MARITALSTATUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDGROUP" Type="Int32" Nullable="false" />
+    <Property Name="COURSE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YEAROFENROLLMENT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SCHOLARSHIP" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GROUP" Relationship="Self.FK_students_IDGROUP_GROUP_GROUPID" FromRole="students" ToRole="GROUP" />
+  </EntityType>
+  <Association Name="FK_SPECIALTY_IDFACULTY_FACULTY_FACULTYID">
+    <End Role="FACULTY" Type="Self.FACULTY" Multiplicity="1" />
+    <End Role="SPECIALTY" Type="Self.SPECIALTY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACULTY">
+        <PropertyRef Name="FACULTYID" />
+      </Principal>
+      <Dependent Role="SPECIALTY">
+        <PropertyRef Name="IDFACULTY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GROUP_IDSPECIALTY_GROUP_SPECIALTYIS">
+    <End Role="SPECIALTY" Type="Self.SPECIALTY" Multiplicity="1" />
+    <End Role="GROUP" Type="Self.GROUP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPECIALTY">
+        <PropertyRef Name="SPECIALTYID" />
+      </Principal>
+      <Dependent Role="GROUP">
+        <PropertyRef Name="IDSPECIALTY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_students_IDGROUP_GROUP_GROUPID">
+    <End Role="GROUP" Type="Self.GROUP" Multiplicity="1" />
+    <End Role="students" Type="Self.students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUP">
+        <PropertyRef Name="GROUPID" />
+      </Principal>
+      <Dependent Role="students">
+        <PropertyRef Name="IDGROUP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STUDENTSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FACULTY" EntityType="Self.FACULTY" />
+    <EntitySet Name="GROUP" EntityType="Self.GROUP" />
+    <EntitySet Name="SPECIALTY" EntityType="Self.SPECIALTY" />
+    <EntitySet Name="students" EntityType="Self.students" />
+    <AssociationSet Name="FK_SPECIALTY_IDFACULTY_FACULTY_FACULTYID" Association="Self.FK_SPECIALTY_IDFACULTY_FACULTY_FACULTYID">
+      <End Role="FACULTY" EntitySet="FACULTY" />
+      <End Role="SPECIALTY" EntitySet="SPECIALTY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GROUP_IDSPECIALTY_GROUP_SPECIALTYIS" Association="Self.FK_GROUP_IDSPECIALTY_GROUP_SPECIALTYIS">
+      <End Role="SPECIALTY" EntitySet="SPECIALTY" />
+      <End Role="GROUP" EntitySet="GROUP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_students_IDGROUP_GROUP_GROUPID" Association="Self.FK_students_IDGROUP_GROUP_GROUPID">
+      <End Role="GROUP" EntitySet="GROUP" />
+      <End Role="students" EntitySet="students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

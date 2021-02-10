@@ -1,0 +1,62 @@
+﻿<Page x:Class="ChainOfStores.Views.Pages.AddSupplyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChainOfStores.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddSupplyPage">
+    <Grid> 
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <StackPanel>
+                        <TextBlock Text="ID-МАГАЗИНА" 
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource AddSupplyTXB}"></TextBlock>
+                        <ComboBox   x:Name="AddShopSupply"
+                                    Width="200" 
+                                    Height="30"></ComboBox>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock Text="ID-ПОСТАВЩИКА" 
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource AddSupplyTXB}"></TextBlock>
+                        <ComboBox  x:Name="AddShopProvide"
+                                    Width="200" 
+                                    Height="30"></ComboBox>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Center"
+                            Margin="35">
+                    <Button Style="{StaticResource MainButton}" 
+                            Content="ВЕРНУТЬСЯ"
+                            x:Name="returnAddMainSupplyPage"
+                            Click="returnAddMainSupplyPage_Click"
+                            Margin="0, 0, 10, 0"></Button>
+                    <Button Style="{StaticResource MainButton}"
+                            Content="ДОБАВИТЬ"
+                            x:Name="addSupply"
+                            Click="addSupply_Click"
+                            Margin="0, 0, 10, 0"></Button>
+                </StackPanel>
+                
+                
+                
+                
+                
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

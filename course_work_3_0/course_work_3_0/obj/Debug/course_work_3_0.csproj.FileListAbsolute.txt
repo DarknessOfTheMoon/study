@@ -1,0 +1,112 @@
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe.config
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.pdb
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.dll
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.xml
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csprojAssemblyReference.cache
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.g.cs
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.g.cs
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.g.cs
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.g.cs
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\App.g.cs
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_Content.g.cs
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.cache
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.lref
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.baml
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.baml
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.baml
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.baml
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.g.resources
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.Properties.Resources.resources
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.GenerateResource.cache
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CoreCompileInputs.cache
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CopyComplete
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.exe
+C:\Users\гость 3\Desktop\COURSE_WORK_3.0\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.pdb
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csprojAssemblyReference.cache
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.g.cs
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.g.cs
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.g.cs
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.g.cs
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\App.g.cs
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_Content.g.cs
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.cache
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.lref
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.exe
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.pdb
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe.config
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.pdb
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.dll
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.dll
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.xml
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.xml
+C:\проекты\none\course_work_3_0\course_work_3_0\bin\Debug\ru\EntityFramework.resources.dll
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.baml
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.baml
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.baml
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.baml
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.g.resources
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.Properties.Resources.resources
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.GenerateResource.cache
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CoreCompileInputs.cache
+C:\проекты\none\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CopyComplete
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe.config
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.pdb
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.dll
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.xml
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csprojAssemblyReference.cache
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.g.cs
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.g.cs
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.g.cs
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.g.cs
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\App.g.cs
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_Content.g.cs
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.cache
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.lref
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.baml
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.baml
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.baml
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.baml
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.g.resources
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.Properties.Resources.resources
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.GenerateResource.cache
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CoreCompileInputs.cache
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CopyComplete
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.exe
+C:\Users\гость 3\Desktop\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.pdb
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe.config
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.exe
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\course_work_3_0.pdb
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.dll
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.xml
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#-WPF\course_work_3_0\course_work_3_0\bin\Debug\ru\EntityFramework.resources.dll
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csprojAssemblyReference.cache
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.g.cs
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.g.cs
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.g.cs
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.g.cs
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\App.g.cs
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_Content.g.cs
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.cache
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0_MarkupCompile.lref
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\pages\addPage.baml
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\pages\ChoicePage.baml
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\pages\viewDataPage.baml
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\views\windows\MainWindow.baml
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.g.resources
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.Properties.Resources.resources
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.GenerateResource.cache
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CoreCompileInputs.cache
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.csproj.CopyComplete
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.exe
+D:\C#-WPF\course_work_3_0\course_work_3_0\obj\Debug\course_work_3_0.pdb

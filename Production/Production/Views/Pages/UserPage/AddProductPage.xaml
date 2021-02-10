@@ -1,0 +1,82 @@
+﻿<Page x:Class="Production.Views.Pages.UserPage.AddProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Production.Views.Pages.UserPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="AddProductPage">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel Margin="5">
+                    <TextBlock Text="НАИМЕНОВАНИЕ"
+                               Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBox x:Name="NameProductTextBoxUSER"
+                             Style="{StaticResource TextBox}"></TextBox>
+                </StackPanel>
+
+                <StackPanel  Margin="5">
+                    <TextBlock Text="ЯВЛЯЕТСЯ ЛИ ТИПОВЫМ"
+                                Margin="0, 0, 0, 10"></TextBlock>
+                    <ComboBox x:Name="TypicalCMBuser"
+                              Style="{StaticResource ComboBox}"></ComboBox>
+                </StackPanel>
+
+                <StackPanel  Margin="5">
+                    <TextBlock Text="ПРИМИЧАНИЕ"
+                                Margin="0, 0, 0, 10"></TextBlock>
+                    <TextBox x:Name="NoteAddTBXUder"
+                             Style="{StaticResource TextBox}"></TextBox>
+                </StackPanel>
+
+                <StackPanel  Margin="10">
+                    <TextBlock Text="КОМПАНИЯ"
+                                Margin="0, 0, 0, 10"></TextBlock>
+                    <ComboBox x:Name="CompanyAddCMBUser"
+                              Style="{StaticResource ComboBox}"></ComboBox>
+                </StackPanel>
+
+                <StackPanel  Margin="10">
+                    <TextBlock Text="МАТЕРИАЛ"
+                                Margin="0, 0, 0, 10"></TextBlock>
+                    <ComboBox    x:Name="MaterialCMBAddUser"
+                                 Style="{StaticResource ComboBox}"></ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="10"
+                            Orientation="Horizontal">
+
+                    <StackPanel>
+                        <TextBlock Text="ДОБАВИТЬ ФОТОГРАФИЮ"
+                                Margin="0, 0, 0, 10"></TextBlock>
+                        <Button Content="ДОБАВИТЬ"
+                            x:Name="AddPictureProduct"
+                            Style="{StaticResource ButtonStyle}" Click="AddPictureProduct_Click"></Button>
+                    </StackPanel>
+                    <StackPanel Margin="50, 0, 0, 0">
+                        <Image x:Name="AddPicture" 
+                               Height="100"
+                               Width="100"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="ExitBTNUserPage"
+                            Style="{StaticResource ButtonStyle}"
+                            Content="ВЫХОД" Click="ExitBTNUserPage_Click"></Button>
+                    <Button  x:Name="AddProductUserPage"
+                              Style="{StaticResource ButtonStyle}"
+                             Content="ДОБАВИТЬ" Click="AddProductUserPage_Click"></Button>
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

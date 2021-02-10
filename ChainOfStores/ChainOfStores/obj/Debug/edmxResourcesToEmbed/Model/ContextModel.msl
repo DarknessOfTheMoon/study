@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ChainOfStoresModelContainer" CdmEntityContainer="ChainOfStoresEntities1">
+    <EntitySetMapping Name="OWNER">
+      <EntityTypeMapping TypeName="ChainOfStoresModel.OWNER">
+        <MappingFragment StoreEntitySet="OWNER">
+          <ScalarProperty Name="IDowner" ColumnName="IDowner" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NumberOwner" ColumnName="NumberOwner" />
+          <ScalarProperty Name="DepositAamount" ColumnName="DepositAamount" />
+          <ScalarProperty Name="NumberRegistration" ColumnName="NumberRegistration" />
+          <ScalarProperty Name="DateRregistration" ColumnName="DateRregistration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROFILE">
+      <EntityTypeMapping TypeName="ChainOfStoresModel.PROFILE">
+        <MappingFragment StoreEntitySet="PROFILE">
+          <ScalarProperty Name="profileID" ColumnName="profileID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVIDER">
+      <EntityTypeMapping TypeName="ChainOfStoresModel.PROVIDER">
+        <MappingFragment StoreEntitySet="PROVIDER">
+          <ScalarProperty Name="IDprovide" ColumnName="IDprovide" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="NumberProvider" ColumnName="NumberProvider" />
+          <ScalarProperty Name="DeliveryCost" ColumnName="DeliveryCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STORE">
+      <EntityTypeMapping TypeName="ChainOfStoresModel.STORE">
+        <MappingFragment StoreEntitySet="STORE">
+          <ScalarProperty Name="IDstore" ColumnName="IDstore" />
+          <ScalarProperty Name="NameStore" ColumnName="NameStore" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NumberStore" ColumnName="NumberStore" />
+          <ScalarProperty Name="AuthorizedCapital" ColumnName="AuthorizedCapital" />
+          <ScalarProperty Name="ownerID" ColumnName="ownerID" />
+          <ScalarProperty Name="IDprofile" ColumnName="IDprofile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUPPLY">
+      <EntityTypeMapping TypeName="ChainOfStoresModel.SUPPLY">
+        <MappingFragment StoreEntitySet="SUPPLY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="storeID" ColumnName="storeID" />
+          <ScalarProperty Name="providerID" ColumnName="providerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

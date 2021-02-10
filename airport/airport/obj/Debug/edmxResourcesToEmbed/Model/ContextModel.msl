@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище airportModelContainer" CdmEntityContainer="airportEntities">
+    <EntitySetMapping Name="citizenship">
+      <EntityTypeMapping TypeName="airportModel.citizenship">
+        <MappingFragment StoreEntitySet="citizenship">
+          <ScalarProperty Name="IDcitizenship" ColumnName="IDcitizenship" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="flight">
+      <EntityTypeMapping TypeName="airportModel.flight">
+        <MappingFragment StoreEntitySet="flight">
+          <ScalarProperty Name="FlifhtId" ColumnName="FlifhtId" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="departurePoint" ColumnName="departurePoint" />
+          <ScalarProperty Name="pointOfArrival" ColumnName="pointOfArrival" />
+          <ScalarProperty Name="departureDate" ColumnName="departureDate" />
+          <ScalarProperty Name="arrivalDate" ColumnName="arrivalDate" />
+          <ScalarProperty Name="TicketsSold" ColumnName="TicketsSold" />
+          <ScalarProperty Name="IDplane" ColumnName="IDplane" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="airportModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="IDgender" ColumnName="IDgender" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="passengers">
+      <EntityTypeMapping TypeName="airportModel.passengers">
+        <MappingFragment StoreEntitySet="passengers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="surName" ColumnName="surName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="MaddleName" ColumnName="MaddleName" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="passportID" ColumnName="passportID" />
+          <ScalarProperty Name="citizenshipID" ColumnName="citizenshipID" />
+          <ScalarProperty Name="idFlight" ColumnName="idFlight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plane">
+      <EntityTypeMapping TypeName="airportModel.plane">
+        <MappingFragment StoreEntitySet="plane">
+          <ScalarProperty Name="planeID" ColumnName="planeID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="numberOfPlaces" ColumnName="numberOfPlaces" />
+          <ScalarProperty Name="flightSpeed" ColumnName="flightSpeed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Point">
+      <EntityTypeMapping TypeName="airportModel.Point">
+        <MappingFragment StoreEntitySet="Point">
+          <ScalarProperty Name="IDpoint" ColumnName="IDpoint" />
+          <ScalarProperty Name="titlDeparturee" ColumnName="titlDeparturee" />
+          <ScalarProperty Name="titleArrival" ColumnName="titleArrival" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
